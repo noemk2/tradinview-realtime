@@ -1,6 +1,6 @@
 import React from 'react';
 import WebSocketComponent from './WebSocketComponent';
-import { ChartComponent } from './ChartComponent';
+// import { ChartComponent } from './ChartComponent';
 
 function App(props) {
   const initialData = [
@@ -14,12 +14,12 @@ function App(props) {
     { time: '2018-12-29', open: 131.33, high: 151.17, low: 77.68, close: 96.43 },
     { time: '2018-12-30', open: 106.33, high: 110.20, low: 90.39, close: 98.10 },
     { time: '2018-12-31', open: 109.87, high: 114.69, low: 85.66, close: 111.26 },
-];
+  ];
 
   return (
     <div className="App">
-      {/* <WebSocketComponent /> */}
-      <ChartComponent {...props} data={initialData}></ChartComponent>
+      <WebSocketComponent {...props}  />
+      {/* <ChartComponent {...props} data={initialData}></ChartComponent> */}
     </div>
   );
 }
