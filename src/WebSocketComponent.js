@@ -10,21 +10,6 @@ function WebSocketComponent(props) {
 
   useEffect(() => {
 
-    function convertUnixTimestamp(timestamp) {
-      // Multiplica por 1000 para convertir el timestamp en milisegundos
-      var date = new Date(timestamp * 1000);
-      
-      // Obtén los componentes de la fecha
-      var year = date.getFullYear();
-      var month = ('0' + (date.getMonth() + 1)).slice(-2); // Agrega un cero inicial si es necesario
-      var day = ('0' + date.getDate()).slice(-2); // Agrega un cero inicial si es necesario
-    
-      // Forma la cadena de fecha en el formato deseado (yyyy-mm-dd)
-      var formattedDate = year + '-' + month + '-' + day;
-      
-      return formattedDate;
-    }
-
     const connection = new WebSocket('wss://deriv-stream.crypto.com/v1/market');
 
     connection.onopen = () => {
@@ -95,27 +80,3 @@ function WebSocketComponent(props) {
 }
 
 export default WebSocketComponent;
-
-
-
-{/* <LineChart
-width={800}
-height={400}
-data={ohlcData}
-margin={{
-  top: 20,
-  right: 20,
-  bottom: 20,
-  left: 20,
-}}
->
-<CartesianGrid stroke="#f5f5f5" />
-<XAxis dataKey="timestamp" />
-<YAxis />
-<Tooltip />
-<Legend />
-{/* <Line type="monotone" dataKey="open" stroke="#8884d8" /> */}
-{/* <Line type="monotone" dataKey="high" stroke="#82ca9d" /> */ }
-{/* <Line type="monotone" dataKey="low" stroke="#ffc658" /> */ }
-{/* <Line type="monotone" dataKey="close" stroke="#d84a4a" /> */ }
-// </LineChart> */}
