@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { ChartComponent } from './ChartComponent';
-// import dayjs from "dayjs";
-// import { ComposedChart, LineChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine } from 'recharts';
 const WebSocket = require('websocket').w3cwebsocket;
 
 function WebSocketComponent(props) {
@@ -26,9 +24,7 @@ function WebSocketComponent(props) {
 
     connection.onmessage = event => {
       const message = event.data;
-      // const ohlc = event.data
       const data = JSON.parse(message);
-      // const ohlc = data 
 
       if (data.method === 'public/heartbeat') {
         const heartbeatResponse = {
@@ -38,9 +34,7 @@ function WebSocketComponent(props) {
         };
         connection.send(JSON.stringify(heartbeatResponse));
       } else {
-        // Actualizar el estado con el nuevo mensaje recibido
         setMessages(prevMessages => [...prevMessages, message]);
-        // console.log(ohlc)
         if (data.result && data.result.data) {
           const newOhlcData = data.result.data.map(item => ({
             time: item.t,
@@ -59,7 +53,6 @@ function WebSocketComponent(props) {
     };
 
     return () => {
-      // Cerrar la conexión cuando el componente se desmonte
       connection.close();
     };
   }, []);
@@ -67,13 +60,7 @@ function WebSocketComponent(props) {
   return (
     <div>
       <h1>WebSocket Messages:</h1>
-      {/* {messages.map((message, index) => (
-        <>
-          <p key={index}>{message}</p>
-        </>
-      ))} */}
       <h2>OHLC Chart:</h2>
-      {/* aqui va el grafico */}
       <ChartComponent {...props} data={ohlcData}></ChartComponent>
     </div>
   );

@@ -37,3 +37,8 @@ export default App;
 // time scale https://tradingview.github.io/lightweight-charts/docs/time-scale
 
 
+//  {/* {messages.map((message, index) => (
+//         <>
+//           <p key={index}>{message}</p>
+//         </>
+//       ))} */}

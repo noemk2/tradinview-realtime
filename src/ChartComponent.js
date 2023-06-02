@@ -52,9 +52,3 @@ export const ChartComponent = props => {
 		/>
 	);
 };
-
-// export function App(props) {
-// 	return (
-// 		<ChartComponent {...props} data={initialData}></ChartComponent>
-// 	);
-// }
