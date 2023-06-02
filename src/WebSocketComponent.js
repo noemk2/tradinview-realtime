@@ -59,9 +59,7 @@ function WebSocketComponent(props) {
 
   return (
     <div>
-      <h1>WebSocket Messages:</h1>
-      <h2>OHLC Chart:</h2>
-      <ChartComponent {...props} data={ohlcData}></ChartComponent>
+      <ChartComponent {...props} data={ohlcData} />
     </div>
   );
 }
