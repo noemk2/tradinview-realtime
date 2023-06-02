@@ -15,7 +15,7 @@ function WebSocketComponent(props) {
         id: 1,
         method: 'subscribe',
         params: {
-          channels: ['candlestick.1m.BTCUSD-PERP']
+          channels: ['candlestick.4h.BTCUSD-PERP']
         },
         nonce: Date.now()
       };
@@ -59,6 +59,11 @@ function WebSocketComponent(props) {
 
   return (
     <div>
+      {messages.map((message, index) => (
+        <>
+          <p key={index}>{message}</p>
+        </>
+      ))}
       <ChartComponent {...props} data={ohlcData} />
     </div>
   );
